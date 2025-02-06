@@ -11,8 +11,14 @@ def product_review(reviews,keys):
         capped_words = []
         for review in reviews: 
             for key in keys:
-                review = review.replace(key, key.upper()) 
-                capped_words.append(review)
+                if key in review:
+                     
+                    review = review.replace(key, key.upper()) 
+                    capped_words.append(review)
+                elif key.capitalize() in review:
+                    review = review.replace(key.capitalize(), key.upper()) 
+                    capped_words.append(review)
+                     
         return capped_words
 
          
